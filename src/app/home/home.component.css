@@ -1,0 +1,41 @@
+.landing {
+    background: #333 url('../../assets/mobile.night1.jpg');
+    background-size: cover;
+}
+
+.weather-info {
+    /* From https://css.glass */
+    /* background: rgba(255, 255, 255, 0.2); */
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.temprature {
+    font-size: 20vw;
+    margin-top: -25px;
+}
+
+.rounded-banner {
+    border-radius: 16px;
+}
+
+.banner-container img {
+    width: 100%;
+    max-height: 30vh;
+    object-fit: cover; /* Adjust this value as needed */
+}
+
+
+@media screen and (min-width: 992px) {
+    .landing {
+        background-image: url('../../assets/night1.jpg');
+    }
+
+    .temprature {
+        font-size: 6vw; /* Default font size */
+    }
+}
