@@ -1,4 +1,3 @@
-
 <div class="container-fluid landing min-vh-100">
     <div class="row justify-content-center">
         <div class="col-lg-6">
@@ -11,8 +10,7 @@
                     </div>
                 </div>
                 <div *ngIf="errorMessage" class="alert alert-warning alert-dismissible fade show w-50 mt-2" role="alert">
-                    {{errorMessage}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {{errorMessage}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </form>
         </div>
@@ -28,12 +26,9 @@
                         <div class="col-lg-8">
                             <div class="row align-items-center">
                                 <div class="col-4">
-                                    <img *ngIf="weatherInfo.weather[0].icon == '01n'" src="../../assets/image.png"
-                                        alt="" class="img-fluid">
-                                    <img *ngIf="weatherInfo.weather[0].icon == '01d'" src="../../assets/day.jpg" alt=""
-                                        class="img-fluid">
-                                    <img *ngIf="weatherInfo.weather[0].icon == '04n'" src="../../assets/weather.jpg"
-                                        alt="" class="img-fluid">
+                                    <img [src]="'../../assets/icons/' + weatherInfo.weather[0].icon + '.png'"
+                                        alt="Weather Icon" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        title="Weather Condition" class="img-fluid" />
                                 </div>
                                 <div class="col-8">
                                     <div class="row">
@@ -43,34 +38,28 @@
                                                 class="fa-solid fa-arrow-down"></i></p>
                                     </div>
                                     <h1 class="temprature">{{convertTemp(weatherInfo.main.temp)}}°C</h1>
-
                                 </div>
                             </div>
                             <div class="row" style="margin-top: -10px;">
                                 <div class="col-4">
                                     <div class="row">
-                                        <p style="margin-top: -10px;">
-                                            <span>
-                                                <img src="https://openweathermap.org/img/wn/{{weatherInfo.weather[0].icon}}.png"
-                                                    alt="Weather Icon" data-bs-toggle="tooltip"
-                                                    data-bs-placement="bottom" title="Weather Condition" />
-                                            </span>
+                                        <p>
                                             {{weatherInfo.weather[0].description}}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-6">
                                     <div class="row">
                                         <p>Feels like {{ convertTemp(weatherInfo.main.feels_like) }}°C</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 p-0 fs-4">
+                        <div class="col-lg-4 p-0 fs-4 ps-3">
                             <p><i class="fa-solid fa-droplet" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                     title="Humidity"></i> {{weatherInfo.main.humidity}} %</p>
                             <p><i class="fa-solid fa-wind" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                    title="Wind Speed"></i> {{weatherInfo.wind.speed * 3.6}} km/hr</p>
+                                    title="Wind Speed"></i> {{(weatherInfo.wind.speed * 3.6).toFixed(2)}} km/hr</p>
                             <p><i class="fa-solid fa-arrow-down-short-wide" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Pressure"></i> {{weatherInfo.main.pressure}} hPa
                             </p>
@@ -82,7 +71,7 @@
                     </div>
                     <div class="row">
                         <div class="banner-container">
-                            <img [src]="banner" alt="" class="rounded-banner">
+                            <img [src]="banner" alt="Banner" class="rounded-banner">
                         </div>
                     </div>
                 </div>
