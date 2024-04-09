@@ -4,10 +4,9 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { LucideAngularModule, MapPin } from 'lucide-angular';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +17,8 @@ import { LucideAngularModule, MapPin } from 'lucide-angular';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    LucideAngularModule.pick({ MapPin  }),
     RouterModule.forRoot([
-      {'path':'', component:HomeComponent}
+      {path:'', component:HomeComponent}
     ])
   ],
   providers: [
