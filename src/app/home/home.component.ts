@@ -20,12 +20,13 @@ export class HomeComponent implements OnInit {
   setImage() {
     if (this.weatherInfo.weather[0].icon.includes('n')) {
       const randomNumber = Math.floor(Math.random() * 5) + 1;
-      this.banner = `../../assets/night${randomNumber}.jpg`; // Replace 'night-image.jpg' with your night image file name
+      this.banner = `assets/night${randomNumber}.jpg`; // Adjust path to your night image file
     } else {
       const randomNumber = Math.floor(Math.random() * 4) + 1;
-      this.banner = `../../assets/day${randomNumber}.jpg`; // Replace 'day-image.jpg' with your day image file name
+      this.banner = `assets/day${randomNumber}.jpg`; // Adjust path to your day image file
     }
   }
+
   fetchUserLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
